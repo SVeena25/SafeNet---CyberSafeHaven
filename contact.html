@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — Safenet</title>
+  <meta name="description" content="Contact Safenet — contact form.">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <style>
+    /* visually-hidden but focusable for accessibility */
+    .visually-hidden-focusable{position:absolute;left:-999px}
+    .visually-hidden-focusable:focus{position:static;left:auto;width:auto;height:auto;margin:1rem}
+    /* hide honeypot from users and assistive tech */
+    .honeypot{position:absolute;left:-9999px;visibility:hidden}
+    @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Safenet</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="nav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="accounts-passwords.html">Guides</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+
+  <main id="main" class="container py-5">
+    <header class="mb-4">
+      <h1 class="h3">Contact</h1>
+      <p class="text-muted">Use this form for non-urgent requests or to report issues. The form demonstrates a client-side preview workflow and a mailto fallback.</p>
+    </header>
+
+    <div class="row">
+      <div class="col-lg-8">
+        <form id="contact-form" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name (optional)</label>
+            <input id="name" name="name" class="form-control" type="text" placeholder="Your name">
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email (required)</label>
+            <input id="email" name="email" class="form-control" type="email" placeholder="you@example.org" required aria-required="true">
+            <div class="invalid-feedback">Please enter a valid email address so we can respond.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input id="subject" name="subject" class="form-control" type="text" placeholder="Short subject">
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Message (required)</label>
+            <textarea id="message" name="message" rows="6" class="form-control" required aria-required="true" placeholder="Describe the issue or question"></textarea>
+            <div class="invalid-feedback">Please provide a short message describing your issue.</div>
+          </div>
+
+          <!-- Honeypot anti-spam (hidden from users) -->
+          <div class="honeypot" aria-hidden="true">
+            <label for="website" class="form-label">Website</label>
+            <input id="website" name="website" type="text" autocomplete="off">
+          </div>
+
+          <div class="mb-3 form-check">
+            <input id="consent" name="consent" type="checkbox" class="form-check-input">
+            <label for="consent" class="form-check-label">I consent to my message being used to respond to this request. See <a href="#">privacy</a>.</label>
+          </div>
+
+          <div class="d-flex gap-2">
+            <button id="send" type="submit" class="btn btn-primary">Send (preview)</button>
+            <button id="mailto" type="button" class="btn btn-outline-secondary">Open in mail client</button>
+            <button id="clear" type="button" class="btn btn-outline-secondary">Clear</button>
+          </div>
+        </form>
+
+        <div id="notice" class="mt-3" aria-live="polite"></div>
+      </div>
+
+      <aside class="col-lg-4">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h3 class="h6">Other ways to contact</h3>
+            <p class="mb-1"><strong>Phone:</strong> <a href="tel:+18001234567">+1 800 123 4567</a></p>
+            <p class="mb-0"><strong>Email:</strong> <a href="mailto:security@example.org">security@example.org</a></p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body small text-muted">
+            <strong>Privacy note</strong>
+            <p class="mb-0">This site is testing purpose only and built for the project submission. his example copies a preview to the clipboard instead of sending it. Keep sensitive information on your device and do not paste it into unknown third-party sites or services. Store backup codes or recovery details securely offline or in a trusted password manager.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bg-light py-3 border-top">
+    <div class="container small text-muted">© Safenet — CyberSafeHaven</div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function(){
+      const form = document.getElementById('contact-form');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+      const website = document.getElementById('website'); // honeypot
+      const notice = document.getElementById('notice');
+      const mailtoBtn = document.getElementById('mailto');
+      const clearBtn = document.getElementById('clear');
+
+      function validate(){
+        let valid = true;
+        [email,message].forEach(el=>{
+          if(!el.checkValidity()){ el.classList.add('is-invalid'); valid=false } else { el.classList.remove('is-invalid') }
+        });
+        return valid;
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        notice.textContent = '';
+        // simple spam check: honeypot must be empty
+        if(website && website.value){ notice.textContent = 'Suspicious submission detected.'; return }
+        if(!validate()){ notice.textContent = 'Please fix validation errors and try again.'; return }
+        // Show a preview and copy to clipboard
+        const payload = {
+          name: form.name.value,
+          email: form.email.value,
+          subject: form.subject.value,
+          message: form.message.value
+        };
+        const preview = `To: security@example.org\nSubject: ${payload.subject || '[no subject]'}\n\n${payload.message}\n\n—from ${payload.name || payload.email}`;
+        // copy to clipboard if available
+        if(navigator.clipboard){ navigator.clipboard.writeText(preview).then(()=>{ notice.textContent = 'Preview copied to clipboard.' }); }
+        else { notice.textContent = 'Preview ready.' }
+      });
+
+      mailtoBtn.addEventListener('click', function(){
+        const subj = encodeURIComponent(document.getElementById('subject').value || 'Safenet contact');
+        const body = encodeURIComponent((document.getElementById('message').value || '') + '\n\n—from: ' + (document.getElementById('name').value || document.getElementById('email').value || ''));
+        window.location.href = `mailto:security@example.org?subject=${subj}&body=${body}`;
+      });
+
+      clearBtn.addEventListener('click', function(){ form.reset(); notice.textContent='Form cleared.' });
+    })();
+  </script>
+</body>
+</html>

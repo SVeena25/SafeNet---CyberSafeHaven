@@ -1,0 +1,100 @@
+:root{--brand:#0b5ed7;--muted:#6c757d}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#102a43;margin:0;background:#fff}
+.hero{background:linear-gradient(180deg, rgba(11,94,215,0.04), rgba(11,94,215,0.01))}
+.btn-primary{
+	background-color: var(--brand);
+	border-color: var(--brand);
+}
+.btn-primary:hover{
+	background-color: #094bb5;
+	border-color: #094bb5;
+}
+.btn-outline-primary{
+	color: var(--brand);
+	border-color: var(--brand);
+}
+.btn-outline-primary:hover{
+	background-color: var(--brand);
+	border-color: #094bb5;
+}
+/* Detailed tokens for outline-secondary buttons */
+.btn-outline-secondary{
+    background-color: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+	/* --bs-btn-color: #3574ab;
+	--bs-btn-border-color: #5fa8e8;
+	--bs-btn-hover-color: #3136c6;
+	--bs-btn-hover-bg: #2e82cc;
+	--bs-btn-hover-border-color: #165fa0;
+	--bs-btn-focus-shadow-rgb: 108, 117, 125;
+	--bs-btn-active-color: #1335f5;
+	--bs-btn-active-bg: #1478d0;
+	--bs-btn-active-border-color: #107edf;
+	--bs-btn-active-shadow: inset 0 3px 5px rgba(76, 85, 143, 0.125);
+	--bs-btn-disabled-color: #1472c5;
+	--bs-btn-disabled-bg: transparent;
+	--bs-btn-disabled-border-color: #286dab;
+	--bs-gradient: none; */
+}
+.btn-outline-secondary:hover{
+	background-color: var(--brand);
+	border-color: #094bb5;
+}
+/* Header background image rule: replace the URL with your image path */
+.hero.bg-image{
+	/* Gradient overlay + image for contrast */
+	background-image: linear-gradient(180deg, rgba(25, 27, 31, 0.3), rgba(11,94,215,0.06)), url('../images/hero.png');
+	background-size: cover;       /* Make the image cover the area */
+	background-position: center;  /* Center the image */
+	background-repeat: no-repeat; /* Prevent repetition */
+	min-height: 220px;            /* Minimum header height */
+	color: #c9bfbf;               /* Text color for visibility */
+	display: flex;
+	align-items: center;
+}
+
+/* Make the content card slightly opaque over the background for readability */
+.hero .card{background: rgba(255,255,255,0.92);} 
+section{padding-top:0.5rem;padding-bottom:0.5rem}
+.card{border-radius:8px}
+.navbar .navbar-brand{color:var(--brand)}
+.small.text-muted{color:var(--muted)}
+
+/* Logo and brand styling */
+.navbar-brand{gap:.5rem}
+.navbar-brand .logo{width:36px;height:36px;object-fit:contain;display:inline-block}
+.navbar-brand .brand-text{font-weight:700;color:var(--brand);line-height:1}
+.navbar-brand .logo{border-radius:6px;background:#fff;padding:2px}
+
+/* Make sure nav links sit to the right on small screens when collapsed */
+.navbar .navbar-nav .nav-link{color:inherit}
+
+/* Header lead paragraph: force opacity variable and use a soft off-white color for better contrast on hero */
+.hero .lead.text-muted,
+.hero p.lead{
+	--bs-text-opacity: 1;
+	color: rgb(236 238 240 / 75%) !important;
+}
+
+/* Make Bootstrap display-5 headings white by default (useful for hero) */
+.display-5{color:#ffffff}
+
+/* Page-specific overrides for legacy about content (kept minimal) */
+h1 { color: #255a5b; }
+ul { margin-top: 1em; }
+.principles { background: #e6f3f2; padding: 1em; border-radius: 8px; margin: 1em 0; }
+strong { color: #d6dedf; }
+
+/* Footer social links styling */
+.social-links a{margin-left:0.75rem;color:var(--muted);text-decoration:none}
+.social-links a:hover{text-decoration:underline;color:var(--brand)}
+.social-links a:focus{outline:2px dotted rgba(11,94,215,0.2);outline-offset:3px}
+
+/* Social icon sizing and alignment */
+.social-links svg{width:20px;height:20px;vertical-align:middle;fill:currentColor}
+.social-links a{display:inline-flex;align-items:center}
+.social-links a .visually-hidden{margin-left:0.35rem}
+
+@media print{nav, .no-print{display:none} .container{max-width:100%} .btn{display:none}}
+

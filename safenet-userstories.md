@@ -358,9 +358,3 @@ C-C4 — Educator Resources (Lesson Plans + Slides)
 
 ---
 
-If you’d like, I can:
-- Export these grouped stories to `safenet-userstories.md` in the project root and update the todo list (mark formatting step in-progress).  
-- Convert Must-have items into a prioritized backlog (CSV or GitHub issues).
-- Draft quick wireframes or simple HTML prototypes for the Homepage and Emergency pages.
-
-Which of those next steps do you want me to take?
