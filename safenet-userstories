@@ -1,0 +1,385 @@
+## Overview (one-line)
+Safenet is a public-facing site to inform, educate, and assist individuals and organizations on digital protection, privacy, and secure practices — and to provide tools, guidance, and community for staying safe online.
+
+## Personas
+- Visitor (general public) — seeks quick, trustworthy advice.
+- Concerned Citizen — wants practical steps to protect personal devices and accounts.
+- Small Business Owner / IT Manager — needs guidance and resources for organizational security.
+- Developer / Security Researcher — wants tools, APIs, datasets, and responsible disclosure info.
+- Educator / Trainer — builds curricula and workshops from site resources.
+- Admin / Content Manager — manages content, analytics, and user submissions.
+- Accessibility User — needs content accessible, readable, and keyboard/assistive-friendly.
+
+---
+
+## Epics and User Stories
+
+Epic: Home & Trust Building
+- User Story H1 (Visitor): As a Visitor, I want a clear homepage that explains what Safenet does and why I should trust the site, so I can decide whether to explore further.
+  - Acceptance criteria: concise mission statement, trust signals (partners, endorsements, privacy policy), primary CTAs (Learn, Tools, Get Help) visible above the fold on desktop and mobile.
+  - Priority: High. Effort: 2
+
+- User Story H2 (Visitor): As a Visitor, I want to see a prominent “Get Help Now” CTA for urgent security incidents, so I can quickly find emergency steps and contacts.
+  - Acceptance: CTA links to emergency guide page and contact options; visible within hero area; accessible via keyboard and screen readers.
+  - Priority: High. Effort: 1
+
+Epic: Learning & Guides
+- User Story L1 (Concerned Citizen): As a Concerned Citizen, I want step-by-step guides (Beginner, Intermediate, Advanced) for securing my devices and accounts, so I can follow concrete steps to improve my security.
+  - Acceptance: Guides are organized by level, have clear steps, estimated time, difficulty tags, printable checklist, and metadata (last updated). Each step includes expected outcome and rollback tips.
+  - Priority: High. Effort: 5
+
+- User Story L2 (Educator): As an Educator, I want downloadable lesson plans and slide decks derived from the guides, so I can run workshops.
+  - Acceptance: At least one guide provides a downloadable curriculum (PDF/Slides + speaker notes), license clarity for reuse, and suggested audience/length.
+  - Priority: Medium. Effort: 3
+
+Epic: Tools & Diagnostics
+- User Story T1 (Visitor): As a Visitor, I want simple online tools (password strength checker, basic privacy scan, 2FA tester) that run client-side where possible, so I can quickly evaluate my security.
+  - Acceptance: Tools run securely (client-side or sanitized server-side), provide actionable results and clear next steps, and state what data (if any) is sent to servers.
+  - Priority: High. Effort: 8
+
+- User Story T2 (Developer / Researcher): As a Developer, I want an API and exportable data from diagnostics (with rate limits) so I can integrate checks into my tools.
+  - Acceptance: API docs exist with endpoints, auth model, rate limits, and example responses. An API key sign-up flow exists for non-sensitive, well-specified endpoints.
+  - Priority: Medium. Effort: 8
+
+Epic: Incident Response & Help
+- User Story I1 (Visitor): As a Visitor experiencing a breach, I want an Incident Response flow that asks minimal info and provides tailored steps for device/account recovery.
+  - Acceptance: Interactive flow asks for incident type, OS, services affected and returns step-by-step guidance; includes escalation/contact options and links to recovery tools.
+  - Priority: High. Effort: 5
+
+- User Story I2 (Small Business Owner): As a Small Business Owner, I want templates (incident report, customer notification, checklist) so I can respond to a breach in a compliant way.
+  - Acceptance: Templates available in editable formats, include regulatory considerations (e.g., breach notification timing), and guidance about when to engage legal counsel.
+  - Priority: Medium. Effort: 3
+
+Epic: Community & Reporting
+- User Story C1 (Security Researcher): As a Researcher, I want a clear vulnerability disclosure and safe-harbor policy so I can report security issues responsibly.
+  - Acceptance: Disclosure page contains contact, PGP key or secure form, scope, timeline, and safe harbor language. A triage/acknowledgement mechanism is specified.
+  - Priority: High. Effort: 2
+
+- User Story C2 (Visitor): As a Visitor, I want to read curated community stories and case-studies about digital protection so I can learn from real scenarios.
+  - Acceptance: At least 10 curated stories with tags (topic, audience), comments disabled or moderated, and links to actionable resources per story.
+  - Priority: Low. Effort: 4
+
+Epic: Account & Personalization
+- User Story A1 (Visitor): As a Visitor, I want to sign up for an account to save my favorite guides and tool results so I can continue my progress across sessions.
+  - Acceptance: Signup supports email/OAuth; saved items stored with user control to export or delete; privacy policy explains retention.
+  - Priority: Medium. Effort: 5
+
+- User Story A2 (Privacy-Conscious User): As a Privacy-Conscious User, I want to use the site without creating an account and with minimal tracking so I can preserve my privacy.
+  - Acceptance: Guest mode available; Cookie banner gives opt-out choices; analytics default to privacy-preserving mode with clear explanations.
+  - Priority: High. Effort: 3
+
+Epic: Accessibility & Multilingual
+- User Story X1 (Accessibility User): As a user who relies on screen readers, I want content structured with good semantic HTML, skip links, and accessible forms so I can navigate and use all site features.
+  - Acceptance: Pages pass automated accessibility checks (WCAG AA baseline), all interactive components have keyboard focus styles and ARIA where appropriate; sample pages tested with a screen reader.
+  - Priority: High. Effort: 4
+
+- User Story X2 (Global Visitor): As a non-English speaker, I want key guides and the emergency pages translated into other major languages so I can understand and act.
+  - Acceptance: At launch, top 3 languages covered for high-traffic guides; translations flagged as verified; language selector present and preserved across pages.
+  - Priority: Medium. Effort: 6
+
+Epic: Content Management & Admin
+- User Story M1 (Admin): As a Content Manager, I want a CMS to create and schedule guides, post updates, and mark last-reviewed dates so content remains current.
+  - Acceptance: CMS supports drafts, scheduled publishes, tags, and content versioning. Changing status triggers an audit log.
+  - Priority: High. Effort: 8
+
+- User Story M2 (Admin): As an Admin, I want to view analytics for guide usage and tool hits so I can prioritize updates and improvements.
+  - Acceptance: Dashboard with basic metrics (views, unique users, tool run counts), filter by date and content, and export CSV. Data respects privacy settings.
+  - Priority: Medium. Effort: 4
+
+Epic: Trust & Legal
+- User Story G1 (Visitor): As a Visitor, I want to read a clear privacy policy, terms, and how data is used so I can decide whether to use site tools.
+  - Acceptance: Policy written in plain language, specific about telemetry and third-party services, linked in footer on every page.
+  - Priority: High. Effort: 2
+
+- User Story G2 (Legal/Compliance): As Legal, I want a process to delete user data upon request and a DSAR workflow, so we can remain compliant with privacy laws.
+  - Acceptance: DSAR process documented, UI to request deletion exists, admin workflow for verification and completion timestamped.
+  - Priority: Medium. Effort: 4
+
+---
+
+## Cross-cutting Non-Functional Stories
+- Performance: As every user, I want pages to load in < 2s on mobile 4G so content is usable in low-bandwidth contexts.
+  - Acceptance: Lighthouse performance target, images optimized, critical CSS inlined, lazy-load non-critical assets.
+  - Priority: High. Effort: 6
+
+- Security: As the site owner, I want secure-by-default hosting and automated vulnerability scanning so the site remains trustworthy.
+  - Acceptance: HTTPS everywhere, Content Security Policy, rate limiting on APIs, automated dependency scanning configured.
+  - Priority: High. Effort: 4
+
+- Privacy-by-design: As Privacy-Conscious User, I want minimal default telemetry and an easy way to opt-in to richer analytics.
+  - Acceptance: Analytics disabled until consent, clear consent UI, anonymous aggregated data only by default.
+  - Priority: High. Effort: 3
+
+- Scalability & Resilience: As the site owner, I want caching and CDN setup and an incident playbook so the site handles traffic spikes and outages.
+  - Acceptance: CDN enabled, caching strategy defined (cache-control headers), and a published incident plan.
+  - Priority: Medium. Effort: 5
+
+---
+
+## Acceptance Criteria Template (use per story)
+- Given [context], when [action], then [observable outcome].
+- Performance threshold (if applicable).
+- Accessibility threshold (WCAG AA acceptance where interactive).
+- Privacy statement: what data is stored, for how long, and how to delete.
+
+---
+
+## Example Detailed Story (format for implementation)
+- ID: L1
+- Title: Beginner Guides for Personal Security
+- Persona: Concerned Citizen
+- Story: As a Concerned Citizen, I want step-by-step guides (Beginner, Intermediate, Advanced) for securing my devices and accounts, so I can follow concrete steps to improve my security.
+- Acceptance:
+  - Given I land on the Personal Security guide landing page, when I select "Beginner", then I see a checklist of 10 clear steps with estimated times and a printable PDF.
+  - Each step has safe defaults and a "Why this matters" short note.
+  - All content includes last-reviewed date and author.
+- Priority: High
+- Effort: 5
+- Edge cases: user on low-bandwidth, offline printable view, translations, no-JS fallback for core content.
+
+---
+
+## Edge Cases & Risks (top 8)
+1. Users in crisis need offline/printable emergency guidance — ensure printable PDFs and concise steps.
+2. Tools that accept URLs or inputs must not leak sensitive user data to third parties — prefer client-side checks or sanitize & document flows.
+3. Legal/regulatory differences across jurisdictions for breach notifications — make templates advisory and recommend local counsel.
+4. Accessibility gaps — prioritize core flows and emergency pages for WCAG compliance.
+5. Misuse of tools (fingerprinting or scan abuse) — rate-limit and throttle APIs.
+6. Translation quality and stale translations — flag translations with verification dates.
+7. Fake trust signals or misuse of endorsements — ensure partner logos/endorsements have explicit permissions.
+8. Privacy/Telemetry opt-out must persist across sessions and respect Do Not Track where feasible.
+
+---
+
+## Quick Contract (core features)
+- Inputs: user-selected guide level or tool input (non-sensitive by default), optionally user account data if logged in.
+- Outputs: human-readable steps, downloadable PDFs, tool results with recommended next steps.
+- Error modes: validation errors, low-confidence results, network failures — always show clear recovery steps.
+- Success criteria: users can complete a recommended security step and confirm a measurable outcome (e.g., enable 2FA).
+
+---
+
+## Next Steps (recommended)
+- Convert high-priority stories into backlog items with tasks (design, content, frontend, backend, QA).
+- Draft wireframes for: homepage, guide article, emergency flow, tool UI, CMS editor.
+- Create minimal MVP: homepage + 3 beginner guides + emergency page + one client-side tool + CMS seed.
+- Plan 2-week sprint to implement MVP features with tests and accessibility checks.
+
+---
+
+If you want, I can:
+- Export these stories into a formatted file (Markdown or CSV) and add them to the repo as `safenet-userstories.md`.
+- Convert high-priority stories into GitHub issues (you'll need to provide access).
+- Draft wireframe mockups (textual or simple HTML prototypes) for the homepage and emergency flow.
+
+Which of those would you like me to do next?
+
+SVeena25: can you create userstories using acceptance criteria and tasks
+
+GitHub Copilot: I'm going to (1) mark the user-stories generation step done and move the review step to in-progress in the todo list, and (2) create a Markdown file `safenet-userstories.md` in your project with detailed user stories that include acceptance criteria and implementation tasks; expected outcome: the repo will contain the new file and the todo list updated. I'll run both updates now.
+
+SVeena25: Can you generate userstories for Safenet: Designing a Digitally Protected World website with acceptance criteria and tasks. Group them in to must-have, should-have and could-have priority please
+
+GitHub Copilot: I'm updating the todo list to mark "Generate user stories" done and set "Review and refine stories" in-progress so we track progress; outcome: todo list reflects current state.
+
+Starting (2/3) *Review and refine stories*
+
+Progress update: todo list updated (generation completed, review in-progress). Below are the user stories grouped by priority (Must-have / Should-have / Could-have). Each story includes acceptance criteria (Given/When/Then where applicable) and an implementation task breakdown (Design / Content / Frontend / Backend / QA). If you want, I can export this to `safenet-userstories.md` in the repo — say the word and I’ll add the file.
+
+## Must-have (MVP — implement first)
+
+M-M1 — Homepage & Trust
+- Story: As a Visitor, I want a clear homepage that explains Safenet’s mission and shows trust signals, so I can decide to use the site.
+- Acceptance:
+  - Given I open the site on desktop or mobile, when the page loads, then I see a concise mission statement, partner/endorsement logos, a link to the privacy policy, and CTAs: Learn, Tools, Get Help above the fold.
+  - Page must be WCAG AA accessible (semantic headings, keyboard nav) and load within performance budget (see NFRs).
+- Tasks:
+  - Design: hero layout, CTA hierarchy, trust-signal area, responsive specs.
+  - Content: mission copy, partner blurbs, privacy link text.
+  - Frontend: implement responsive hero, CTAs, accessible markup, lazy-load logos.
+  - Backend: none (static content).
+  - QA: accessibility audit, cross-browser check, performance (Lighthouse).
+
+M-M2 — Emergency “Get Help Now” flow
+- Story: As a Visitor in crisis, I want a prominent “Get Help Now” CTA and an emergency page with quick recovery steps, so I can act immediately.
+- Acceptance:
+  - Given I click Get Help, when I land on emergency page, then I see concise, prioritized steps for common incidents (account compromise, device malware), one-click phone/email escalation, printable emergency checklist, and translation selector.
+  - Emergency page must be printable and available offline (print-friendly CSS and downloadable PDF).
+- Tasks:
+  - Design: emergency page wireframe and printable layout.
+  - Content: concise step lists for incident types, escalation contact placeholders.
+  - Frontend: accessible form for incident type, print stylesheet, language selector.
+  - Backend: minimal contact relay (email/form), rate-limiting for submissions.
+  - QA: print output validation, accessibility check, content accuracy review.
+
+M-M3 — Beginner Guides (Personal Security)
+- Story: As a Concerned Citizen, I want step-by-step beginner guides to secure devices and accounts, so I can follow actionable tasks.
+- Acceptance:
+  - Given I select Beginner guide, when the page loads, then I see a checklist of 8–12 steps with estimated time, difficulty, explicit outcomes, “Why this matters”, and a printable checklist/PDF.
+  - Each guide shows last-reviewed date and author; content has no gated paywalls.
+- Tasks:
+  - Design: guide page layout, step checklist component, print/export button.
+  - Content: write 3 core beginner guides (accounts, devices, networks).
+  - Frontend: render steps, progress/save-as-favorite (localStorage), print export.
+  - Backend: content storage (CMS or markdown); metadata (last-reviewed).
+  - QA: copy review, accessibility checks, no-JS fallback for core text.
+
+M-M4 — Basic Client-side Tools (Password Strength, 2FA Guide)
+- Story: As a Visitor, I want simple client-side tools (password strength checker, 2FA enablement guide) that do not send sensitive input to servers.
+- Acceptance:
+  - Given I input a password into the checker, when it evaluates, then it shows strength, reasons, and actionable improvement tips — and no password leaves my browser.
+  - 2FA guide provides step-by-step flows for major providers and a way to mark completion.
+- Tasks:
+  - Design: tool UIs and microcopy explaining privacy of inputs.
+  - Content: 2FA provider steps, password guidance heuristics.
+  - Frontend: implement password strength (zxcvbn or similar client-side), 2FA checklist, accessible controls.
+  - Backend: none for core; telemetry only if user opts-in.
+  - QA: privacy review (no exfiltration), unit tests for strength logic, accessibility checks.
+
+M-M5 — Accessibility & Privacy Defaults
+- Story: As an Accessibility or Privacy-Conscious User, I want the site to be accessible and minimal-tracking by default so I can use it safely.
+- Acceptance:
+  - Default analytics disabled until consent. Site meets WCAG AA on core pages (homepage, emergency, guides). Cookie banner allows granular opt-in.
+- Tasks:
+  - Design: cookie banner flows and accessible controls.
+  - Content: privacy copy for banner and policy excerpt.
+  - Frontend: implement consent management, ARIA attributes, skip links, keyboard focus management.
+  - Backend: opt-in storage, serve privacy-respecting analytics only on consent.
+  - QA: accessibility regression tests, privacy flow validation.
+
+M-M6 — Vulnerability Disclosure / Contact
+- Story: As a Security Researcher, I want a clear disclosure page with contact and safe-harbor guidance so I can report issues responsibly.
+- Acceptance:
+  - Page contains scope, timeline, PGP key or secure form, acknowledgement expectation, and triage contact method.
+- Tasks:
+  - Design: disclosure page layout with secure form.
+  - Content: disclosure policy text, PGP key.
+  - Frontend: secure submission form (CSRF protection), rate-limit UI feedback.
+  - Backend: secure mailbox or ticket integration, auto-acknowledgement.
+  - QA: security review, form spam protection.
+
+## Should-have (important, next sprint)
+
+S-S1 — Incident Response Templates for Organizations
+- Story: As a Small Business Owner, I want incident response templates (report, customer notice, checklist) so I can act compliantly after a breach.
+- Acceptance:
+  - Templates downloadable in editable formats; include regulatory guidance notes; disclaimers to consult counsel.
+- Tasks:
+  - Design: template layout, downloadable formats.
+  - Content: write incident report, customer notification, checklist.
+  - Frontend: template preview & download button.
+  - Backend: storage for template files (PDF, DOCX).
+  - QA: legal spot-check (if available), template rendering tests.
+
+S-S2 — Saved Progress & Simple Accounts (Optional Signup)
+- Story: As a Visitor, I want to optionally sign up to save favorite guides and tool results across sessions.
+- Acceptance:
+  - Sign-up via email/OAuth; saved items are exportable/deletable; privacy policy documents retention.
+  - Default experience available without account.
+- Tasks:
+  - Design: account signup/login UI, saved items list.
+  - Content: privacy/consent copy for accounts.
+  - Frontend: signup/login flows, saved item UI.
+  - Backend: user store, secure auth (bcrypt, OAuth), endpoints for save/export/delete.
+  - QA: security tests (auth), privacy compliance checks.
+
+S-S3 — CMS Integration for Content Managers
+- Story: As a Content Manager, I want a CMS to create/schedule guides and mark last-reviewed dates to keep content current.
+- Acceptance:
+  - CMS supports drafts, scheduled publish, tags, versioning, and audit logs for status changes.
+- Tasks:
+  - Design: CMS editor UI and metadata fields.
+  - Content: seed guides and metadata.
+  - Frontend: admin UI components.
+  - Backend: CMS (headless or simple admin), authentication/roles, audit logging.
+  - QA: role-based access tests, content publish flow tests.
+
+S-S4 — Multilingual Support (Core Guides & Emergency)
+- Story: As a Global Visitor, I want key guides and emergency pages translated to top target languages so I can act in my language.
+- Acceptance:
+  - At launch, emergency page + 3 core guides are available in top 3 target languages; language selector persists across pages; translations flagged with review date.
+- Tasks:
+  - Design: language selector UI and UX for content fallback.
+  - Content: translation workflow and initial translated copy.
+  - Frontend: i18n implementation (URL patterns or locale param), fallback handling.
+  - Backend: content localization store.
+  - QA: translation checks, right-to-left validation (if applicable).
+
+S-S5 — Analytics Dashboard (Privacy-preserving)
+- Story: As an Admin, I want to view high-level analytics for guides and tool usage to prioritize improvements.
+- Acceptance:
+  - Dashboard shows aggregated metrics (views, unique users, tool runs). By default, data is anonymized; export CSV available.
+- Tasks:
+  - Design: admin dashboard layout and filters.
+  - Frontend: charts and export UI.
+  - Backend: aggregated events pipeline, privacy-preserving aggregation (no PII).
+  - QA: data accuracy checks, export validation.
+
+## Could-have (nice-to-have / future)
+
+C-C1 — API for Diagnostics & Exports
+- Story: As a Developer, I want an API to access non-sensitive diagnostic results and aggregate metrics to integrate with other tools.
+- Acceptance:
+  - API docs, example responses, rate-limits, API key sign-up. No endpoints return PII unless explicitly authorized by user.
+- Tasks:
+  - Design: API surface and auth model.
+  - Backend: implement endpoints, rate-limiting, key management.
+  - Frontend: API docs site (Swagger/OpenAPI).
+  - QA: API contract tests, security review.
+
+C-C2 — Community Stories & Case Studies
+- Story: As a Visitor, I want curated case studies and community stories to learn from real-world examples.
+- Acceptance:
+  - Curated list with tags, 10+ stories at launch, moderation for user-submitted entries, action links per story.
+- Tasks:
+  - Content: collect and edit case studies.
+  - Frontend: listing and story page.
+  - Backend: submission & moderation workflow.
+  - QA: content moderation testing.
+
+C-C3 — Interactive Diagnostic Scans (Advanced)
+- Story: As a Visitor, I want an advanced privacy scanner that checks public exposure (DNS, email leaks) with clear opt-in and sanitized reporting.
+- Acceptance:
+  - Scans run only after explicit user consent, results are sanitized, rate-limited, and avoid probing private endpoints.
+- Tasks:
+  - Design: scanner UX and consent flow.
+  - Backend: scanning infrastructure with strict safety rules.
+  - Frontend: scan initiation and result visualizer.
+  - QA: safety review, rate-limit tests, legal review.
+
+C-C4 — Educator Resources (Lesson Plans + Slides)
+- Story: As an Educator, I want downloadable lesson plans and slide decks derived from guides so I can run workshops.
+- Acceptance:
+  - At least one guide includes a downloadable lesson pack with speaker notes and suggested timings, license for reuse.
+- Tasks:
+  - Content: produce lesson pack and slides.
+  - Design: slide templates and branding guidance.
+  - Frontend: download interface.
+  - QA: readability & reuse check.
+
+## Cross-cutting Acceptance & Non-functional Requirements (apply to all relevant stories)
+- Accessibility: Core pages must meet WCAG AA. Key flows must be keyboard-operable and have meaningful ARIA where necessary.
+- Performance: Core pages load under 2s on 4G simulated mobile (Lighthouse target).
+- Privacy & Security:
+  - Default telemetry disabled until user consents.
+  - HTTPS everywhere, CSP headers, input validation, rate-limiting on forms and APIs.
+  - Client-side tooling must not exfiltrate sensitive user inputs (explicitly state this next to tools).
+- Legal/Compliance: Templates should include disclaimers and advise legal counsel for jurisdiction-specific obligations.
+- QA: Each story to include at least one automated test (unit or integration) where applicable and a manual accessibility test.
+
+## Ready-for-Dev Checklist (for each story)
+- UX wireframe approved
+- Acceptance criteria agreed and testable (Given/When/Then)
+- Content copy drafted
+- Design assets (icons, images) provided or flagged for placeholder
+- Estimation (story points or effort days)
+- Owner assigned
+
+---
+
+If you’d like, I can:
+- Export these grouped stories to `safenet-userstories.md` in the project root and update the todo list (mark formatting step in-progress).  
+- Convert Must-have items into a prioritized backlog (CSV or GitHub issues).
+- Draft quick wireframes or simple HTML prototypes for the Homepage and Emergency pages.
+
+Which of those next steps do you want me to take?
