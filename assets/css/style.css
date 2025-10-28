@@ -84,7 +84,8 @@ section{padding-top:0.5rem;padding-bottom:0.5rem}
 h1 { color: #255a5b; }
 ul { margin-top: 1em; }
 .principles { background: #e6f3f2; padding: 1em; border-radius: 8px; margin: 1em 0; }
-strong { color: #d6dedf; }
+/* Make <strong> stand out with a dark, readable color matching body text */
+strong { color: #102a43; }
 
 /* Footer social links styling */
 .social-links a{margin-left:0.75rem;color:var(--muted);text-decoration:none}
