@@ -167,25 +167,6 @@ Epic: Trust & Legal
 
 ---
 
-If you want, I can:
-- Export these stories into a formatted file (Markdown or CSV) and add them to the repo as `safenet-userstories.md`.
-- Convert high-priority stories into GitHub issues (you'll need to provide access).
-- Draft wireframe mockups (textual or simple HTML prototypes) for the homepage and emergency flow.
-
-Which of those would you like me to do next?
-
-SVeena25: can you create userstories using acceptance criteria and tasks
-
-GitHub Copilot: I'm going to (1) mark the user-stories generation step done and move the review step to in-progress in the todo list, and (2) create a Markdown file `safenet-userstories.md` in your project with detailed user stories that include acceptance criteria and implementation tasks; expected outcome: the repo will contain the new file and the todo list updated. I'll run both updates now.
-
-SVeena25: Can you generate userstories for Safenet: Designing a Digitally Protected World website with acceptance criteria and tasks. Group them in to must-have, should-have and could-have priority please
-
-GitHub Copilot: I'm updating the todo list to mark "Generate user stories" done and set "Review and refine stories" in-progress so we track progress; outcome: todo list reflects current state.
-
-Starting (2/3) *Review and refine stories*
-
-Progress update: todo list updated (generation completed, review in-progress). Below are the user stories grouped by priority (Must-have / Should-have / Could-have). Each story includes acceptance criteria (Given/When/Then where applicable) and an implementation task breakdown (Design / Content / Frontend / Backend / QA). If you want, I can export this to `safenet-userstories.md` in the repo — say the word and I’ll add the file.
-
 ## Must-have (MVP — implement first)
 
 M-M1 — Homepage & Trust
