@@ -1,6 +1,18 @@
-:root{--brand:#0b5ed7;--muted:#6c757d}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#102a43;margin:0;background:#fff}
+:root{--brand:#0b5ed7;--muted:#6c757d;--bs-card-color:#ffffff}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#102a43;margin:0;background-color:#f8f8f9;background-image:linear-gradient(180deg,#fbfdfe,#f3f7fa)}
 .hero{background:linear-gradient(180deg, rgba(11,94,215,0.04), rgba(11,94,215,0.01))}
+
+.text-muted,
+.small.text-muted {
+	--bs-text-opacity: 1;
+	color: var(--muted);
+}
+/* user agent stylesheet
+div {
+    display: block;
+    unicode-bidi: isolate;
+} */
+
 .btn-primary{
 	background-color: var(--brand);
 	border-color: var(--brand);
@@ -48,7 +60,7 @@ body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:
 	background-size: cover;       /* Make the image cover the area */
 	background-position: center;  /* Center the image */
 	background-repeat: no-repeat; /* Prevent repetition */
-	min-height: 220px;            /* Minimum header height */
+	min-height: 420px;            /* Minimum header height */
 	color: #c9bfbf;               /* Text color for visibility */
 	display: flex;
 	align-items: center;
@@ -80,6 +92,12 @@ section{padding-top:0.5rem;padding-bottom:0.5rem}
 /* Make Bootstrap display-5 headings white by default (useful for hero) */
 .display-5{color:#ffffff}
 
+/* Utility: class .h6 (Bootstrap utility class used on headings) match text-muted variant if needed */
+.h6 {
+	--bs-text-opacity: 1;
+	color: rgba(240, 243, 246, 0.75);
+}
+
 /* Page-specific overrides for legacy about content (kept minimal) */
 h1 { color: #255a5b; }
 ul { margin-top: 1em; }
@@ -87,7 +105,54 @@ ul { margin-top: 1em; }
 /* Make <strong> stand out with a dark, readable color matching body text */
 strong { color: #102a43; }
 
+/* .card-body {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 8px;
+	padding: 1.5rem;
+} */
 
+/* Card body: subtle light background to separate content from page background */
+.card-body {
+	/* default card body: use card color variable (white) and dark text for readability */
+	background-color: var(--bs-card-color);
+	color: #102a43;
+	border-radius: 8px;
+	padding: 1rem;
+}
+
+/* h6 inside a card: dark text on a light-tinted background for emphasis */
+.card-body h6 {
+	
+	display: inline-block;
+	margin: 0 0 0.5rem 0;
+	padding: 0.2rem 0.5rem;
+	background-color: rgba(16,42,67,0.04); /* subtle tinted background */
+	color: inherit;
+	border-radius: 6px;
+	font-weight: 600;
+	line-height: 1;
+}
+
+/* h3 inside card body should use readable dark color by default */
+.card-body h3 {
+	color: #102a43;
+}
+
+/* Hero card (top-right search) keeps a darker, semi-opaque background for contrast on the hero */
+.hero .card-body {
+	background-color: rgba(34,48,62,0.54);
+	color: #ffffff;
+}
+
+/* Hero-specific muted text should be light */
+.hero .card-body .text-muted,
+.hero .card-body p.small.text-muted,
+.hero p.lead {
+	color: rgba(236,238,240,0.75) !important;
+}
+/* .align-items-center {
+    align-items: flex-start;
+} */
 
 /* Footer social links styling */
 .social-links a{margin-left:0.75rem;color:var(--muted);text-decoration:none}
@@ -99,15 +164,125 @@ strong { color: #102a43; }
 .social-links a{display:inline-flex;align-items:center}
 .social-links a .visually-hidden{margin-left:0.35rem}
 
-@media print{nav, .no-print{display:none} .container{max-width:100%} .btn{display:none}}
 
 /* Styles for guide.html (scoped to #guide-content) */
 #guide-content { background: transparent; }
 #guide-content h1 { color: #205081; }
 #guide-content h2 { color: #2c6e4f; margin-top: 2rem; }
+#guide-content h6 { color: #eff1f3; }
 #guide-content ul { margin-bottom: 1rem; }
 #guide-content li { margin-bottom: 0.6rem; }
-#guide-content .section { background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 1.5rem; margin-bottom: 2rem; }
+/* Section: combine card visuals with a two-column flexible layout for text + image */
+#guide-content .section {
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+	padding: 1.5rem;
+	margin-bottom: 2rem;
+	display: flex;
+	flex-wrap: wrap;
+	/* center-align content vertically so image and text sit in one visual row */
+	align-items: center;
+	gap: 2rem;
+	flex: 1 1 350px;
+	min-width: 280px;
+}
+
+/* Image column sizing and alignment */
+#guide-content .image {
+	flex: 0 1 320px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-width: 220px;
+}
+
+/* Text column should grow to fill remaining space */
+#guide-content .section > div:first-child { flex: 1 1 420px; min-width: 220px; }
+
+/* Portrait image style (overrides generic img rules when applied) */
+#guide-content .portrait {
+	max-width: 60%;
+	height: auto;
+	max-height: 320px;
+	object-fit: fill;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px #ccc;
+}
+
+@media print{nav, .no-print{display:none} .container{max-width:100%} .btn{display:none}}
+
+/* Small, shared helpers moved from page-local <style> blocks */
+@media print{
+	/* keep container full-width for print and show step checkboxes inline */
+	.no-print{display:none}
+	.container{max-width:100%}
+	.step-checkbox{display:inline-block}
+}
+
+/* Meta line used in several guides for estimated time / difficulty */
+.meta{font-size:0.9rem;color:var(--muted)}
+
+/* checklist row completed state used by guide step lists */
+.step-item.completed{opacity:0.6;text-decoration:line-through}
+
+/* visually-hidden but focusable helper (used for skip links) */
+.visually-hidden-focusable{position:absolute;left:-999px}
+.visually-hidden-focusable:focus{position:static;left:auto;width:auto;height:auto;margin:1rem}
+
+/* hide honeypot elements from assistive tech and layout */
+.honeypot{position:absolute;left:-9999px;visibility:hidden}
+
+/* Respect reduced-motion preference site-wide for transitions */
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+
+/* Ensure on narrow screens the image stacks above/below text and uses full width */
+@media (max-width: 575.98px) {
+	#guide-content .section { align-items: flex-start; }
+	#guide-content .image { flex-basis: 100%; min-width: 0; }
+	#guide-content .section > div:first-child { flex-basis: 100%; }
+	#guide-content .portrait { width: 100%; height: auto; max-height: none; }
+}
+
+/* Generic guide images: responsive fallback */
+#guide-content img { width: 100%; height: auto; object-fit: cover; }
+
 #guide-content .important { background: #fffbe6; border-left: 4px solid #fabe2e; padding: 1rem; margin-top: 2rem; }
-#guide-content img{width:100%;height:auto;object-fit:cover}
+
+/* Utility/layout rules for small card-like blocks used in snippets */
+.row-align { display: flex; align-items: center; gap: 1rem; }
+
+/* background block (example): id + class combination for the provided snippet */
+#bg1.background-1 {
+	background: linear-gradient(180deg, #fbfdff, #f4f8fc);
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.background-1 { background-color: #f7fbff; }
+
+.rounded-corners { border-radius: 8px; overflow: hidden; }
+
+.maxheight { max-height: 320px; overflow: hidden; }
+
+.logoMaxSize { display: block; max-width: 100%; height: auto; object-fit: cover; }
+
+/* A bit of spacing for any text inside the bg block */
+#bg1 p { margin: 0.5rem 0 0 0; }
+
+@media (max-width: 575.98px) {
+	.row-align { flex-direction: column; align-items: stretch; }
+	#bg1.background-1 { padding: 0.75rem; }
+}
+
+/* Homepage spacing tweaks: small gap between sections (scoped to .home) */
+.home main.container > section { margin-bottom: 1.5rem; padding-top: 0rem; }
+.home #guides { padding-top: 1.25rem; }
+.home .mb-5 { padding-top: 0.75rem; }
+
+/* Utility override: treat .align-items-center as flex-start for tighter control */
+.align-items-center { align-items: flex-start; }
 
