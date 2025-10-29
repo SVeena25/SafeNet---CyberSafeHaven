@@ -87,6 +87,8 @@ ul { margin-top: 1em; }
 /* Make <strong> stand out with a dark, readable color matching body text */
 strong { color: #102a43; }
 
+
+
 /* Footer social links styling */
 .social-links a{margin-left:0.75rem;color:var(--muted);text-decoration:none}
 .social-links a:hover{text-decoration:underline;color:var(--brand)}
@@ -98,4 +100,14 @@ strong { color: #102a43; }
 .social-links a .visually-hidden{margin-left:0.35rem}
 
 @media print{nav, .no-print{display:none} .container{max-width:100%} .btn{display:none}}
+
+/* Styles for guide.html (scoped to #guide-content) */
+#guide-content { background: transparent; }
+#guide-content h1 { color: #205081; }
+#guide-content h2 { color: #2c6e4f; margin-top: 2rem; }
+#guide-content ul { margin-bottom: 1rem; }
+#guide-content li { margin-bottom: 0.6rem; }
+#guide-content .section { background: #fff; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 1.5rem; margin-bottom: 2rem; }
+#guide-content .important { background: #fffbe6; border-left: 4px solid #fabe2e; padding: 1rem; margin-top: 2rem; }
+#guide-content img{width:100%;height:auto;object-fit:cover}
 
