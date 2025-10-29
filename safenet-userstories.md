@@ -16,6 +16,7 @@ Safenet is a public-facing site to inform, educate, and assist individuals and o
 ## Must-have (MVP — implement first)
 ## must-have 
 ## should-have
+## Could-have
 
 Homepage & Trust
 - Story: As a Visitor, I want a clear homepage that explains Safenet’s mission and shows trust signals, so I can decide to use the site.
