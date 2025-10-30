@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -9,6 +10,7 @@
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom no-print sticky-top">
     <div class="container">
@@ -16,7 +18,8 @@
         <img src="assets/images/logo.svg" class="logo me-2" width="36" height="36" alt="Safenet logo">
         <span class="brand-text">Safenet</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav"
+        aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="nav">
@@ -44,12 +47,14 @@
         <div class="meta mb-2">
           <span id="estimated">Estimated time: 10–20 mins</span> · <span id="difficulty">Difficulty: Beginner</span>
         </div>
-        <div class="meta">Last reviewed: <time id="last-reviewed">2025-10-28</time> · Author: <span id="author">TBD</span></div>
+        <div class="meta">Last reviewed: <time id="last-reviewed">2025-10-28</time> · Author: <span
+            id="author">TBD</span></div>
       </header>
 
       <section aria-labelledby="steps-heading">
         <h2 id="steps-heading">Steps</h2>
-        <p class="text-muted">Follow these steps in order. Use the checkboxes to track progress and print the page for offline use.</p>
+        <p class="text-muted">Follow these steps in order. Use the checkboxes to track progress and print the page for
+          offline use.</p>
         <div class="list-group">
           <label class="list-group-item d-flex gap-3 align-items-start step-item" data-step="1">
             <input class="form-check-input mt-1 step-checkbox" type="checkbox" aria-label="Step 1" data-stepid="1">
@@ -63,7 +68,8 @@
             <input class="form-check-input mt-1 step-checkbox" type="checkbox" aria-label="Step 2" data-stepid="2">
             <div class="flex-grow-1">
               <div class="fw-semibold">Step 2 — Revoke sessions & check connected apps</div>
-              <div class="small text-muted">Sign out of all sessions and remove unfamiliar apps from your account settings.</div>
+              <div class="small text-muted">Sign out of all sessions and remove unfamiliar apps from your account
+                settings.</div>
             </div>
           </label>
 
@@ -71,7 +77,8 @@
             <input class="form-check-input mt-1 step-checkbox" type="checkbox" aria-label="Step 3" data-stepid="3">
             <div class="flex-grow-1">
               <div class="fw-semibold">Step 3 — Scan your devices</div>
-              <div class="small text-muted">Run an up-to-date antivirus or malware scanner; consider a factory reset if compromised.</div>
+              <div class="small text-muted">Run an up-to-date antivirus or malware scanner; consider a factory reset if
+                compromised.</div>
             </div>
           </label>
         </div>
@@ -105,37 +112,38 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // simple save/load of completed steps in localStorage (per-guide key)
-    (function(){
+    (function () {
       const GUIDE_KEY = 'guide-progress:[guide-sample]';
       const checkboxes = document.querySelectorAll('.step-checkbox');
-      function load(){
-        try{
+      function load() {
+        try {
           const raw = localStorage.getItem(GUIDE_KEY);
-          if(!raw) return;
+          if (!raw) return;
           const done = JSON.parse(raw);
-          checkboxes.forEach(cb=>{ cb.checked = !!done[cb.dataset.stepid]; toggleRow(cb); });
-        }catch(e){console.warn(e)}
+          checkboxes.forEach(cb => { cb.checked = !!done[cb.dataset.stepid]; toggleRow(cb); });
+        } catch (e) { console.warn(e) }
       }
-      function save(){
+      function save() {
         const obj = {};
-        checkboxes.forEach(cb=> obj[cb.dataset.stepid] = !!cb.checked);
+        checkboxes.forEach(cb => obj[cb.dataset.stepid] = !!cb.checked);
         localStorage.setItem(GUIDE_KEY, JSON.stringify(obj));
         alert('Progress saved locally.');
       }
-      function clearAll(){
-        checkboxes.forEach(cb=>{cb.checked=false; toggleRow(cb)});
+      function clearAll() {
+        checkboxes.forEach(cb => { cb.checked = false; toggleRow(cb) });
         localStorage.removeItem(GUIDE_KEY);
       }
-      function toggleRow(cb){
+      function toggleRow(cb) {
         const row = cb.closest('.step-item');
-        if(!row) return;
-        if(cb.checked) row.classList.add('completed'); else row.classList.remove('completed');
+        if (!row) return;
+        if (cb.checked) row.classList.add('completed'); else row.classList.remove('completed');
       }
-      checkboxes.forEach(cb=> cb.addEventListener('change', function(){ toggleRow(this); }));
+      checkboxes.forEach(cb => cb.addEventListener('change', function () { toggleRow(this); }));
       document.getElementById('save-progress').addEventListener('click', save);
       document.getElementById('clear-progress').addEventListener('click', clearAll);
       load();
     })();
   </script>
 </body>
+
 </html>
