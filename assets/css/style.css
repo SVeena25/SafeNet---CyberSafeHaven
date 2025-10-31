@@ -159,6 +159,7 @@ section {
 .h6 {
 	--bs-text-opacity: 1;
 	color: rgba(240, 243, 246, 0.75);
+	/* Additional styles can be added here */
 }
 
 /* Page-specific overrides for legacy about content (kept minimal) */
